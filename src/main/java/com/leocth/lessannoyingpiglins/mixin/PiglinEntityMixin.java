@@ -38,7 +38,18 @@ public abstract class PiglinEntityMixin extends AbstractPiglinEntity
 
     @Override
     public int getMaxCooldown() {
-        System.out.println(LessAnnoyingPiglins.getConfig().getNeutralTicksAfterBarter()
+        return LessAnnoyingPiglins.getConfig().getNeutralTicksAfterBarter();
+    }
+
+    @Inject(method = "mobTick", at = @At("TAIL"))
+    private void mobTick(CallbackInfo info) {
+        PiglinEntity piglin = (PiglinEntity) (Object) this; // fuckin pure evil
+        if (cooldown > 0) {
+            if (!PiglinBrainMixin.Invokers.isAdmiringItem(piglin))
+                cooldown--;
+        }
+        else
+            cooldown = 0;
     }
 
     @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
