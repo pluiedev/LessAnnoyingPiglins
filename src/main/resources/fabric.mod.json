@@ -1,0 +1,30 @@
+{
+    "schemaVersion": 1,
+    "id": "lessannoyingpiglins",
+    "version": "${version}",
+    "name": "Less Annoying Piglins",
+    "description": "Makes piglins neutral for a while after bartering.",
+    "authors": [
+        "leocth"
+    ],
+    "contact": {},
+    "license": "MIT",
+    "icon": "assets/lessannoyingpiglins/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.leocth.lessannoyingpiglins.LessAnnoyingPiglins"
+        ],
+        "modmenu": [
+            "com.leocth.lessannoyingpiglins.ModMenuIntegration"
+        ]
+    },
+    "mixins": [
+        "lessannoyingpiglins.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.10.1+build.209",
+        "fabric": "*",
+        "minecraft": "1.16.3"
+    }
+}

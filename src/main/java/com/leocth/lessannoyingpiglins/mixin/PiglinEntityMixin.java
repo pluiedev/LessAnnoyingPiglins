@@ -1,0 +1,55 @@
+package com.leocth.lessannoyingpiglins.mixin;
+
+import com.leocth.lessannoyingpiglins.LessAnnoyingPiglin;
+import com.leocth.lessannoyingpiglins.LessAnnoyingPiglins;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.mob.AbstractPiglinEntity;
+import net.minecraft.entity.mob.PiglinEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(PiglinEntity.class)
+public abstract class PiglinEntityMixin extends AbstractPiglinEntity
+        implements LessAnnoyingPiglin // some heavy duty *duck* tape here
+{
+    @Shadow public abstract Brain<PiglinEntity> getBrain();
+
+    private int cooldown;
+
+    public PiglinEntityMixin(EntityType<? extends AbstractPiglinEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    @Override
+    public int getCooldown() {
+        return cooldown;
+    }
+
+    @Override
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
+    }
+
+    @Override
+    public int getMaxCooldown() {
+        System.out.println(LessAnnoyingPiglins.getConfig().getNeutralTicksAfterBarter()
+    }
+
+    @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
+    private void writeCustomDataToTag(CompoundTag tag, CallbackInfo info) {
+        tag.putInt("LAPCooldown", this.getCooldown());
+    }
+
+    @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
+    private void readCustomDataToTag(CompoundTag tag, CallbackInfo info) {
+        if (tag.contains("LAPCooldown", 99))
+            this.setCooldown(tag.getInt("LAPCooldown"));
+    }
+
+}

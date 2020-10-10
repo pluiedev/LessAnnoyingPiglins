@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.leocth.lessannoyingpiglins.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "PiglinBrainMixin",
+        "PiglinBrainMixin$Invokers",
+        "PiglinEntityMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
