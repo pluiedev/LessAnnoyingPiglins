@@ -4,7 +4,7 @@ inspired by the countless innocent deaths of players caused by crossbow-wielding
 you're welcome.
 
 ### how 2 use
-install fabric, move jar into mods directory, run. easy peasy. no fabric api required.
+install fabric, move jar into mods directory, put [cloth config](https://www.curseforge.com/minecraft/mc-mods/cloth-config) there as well, run. easy peasy. no fabric api required.
 
 ### adjust for ur own use
 @ \<root folder\>/config/lessannoyingpiglins.toml.
