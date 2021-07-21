@@ -33,13 +33,13 @@ public abstract class PiglinBrainMixin {
             method = "getPreferredTarget",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/entity/mob/PiglinBrain;shouldAttack(Lnet/minecraft/entity/LivingEntity;)Z",
-                    ordinal = 1
+                    target = "Lnet/minecraft/entity/ai/brain/sensor/Sensor;testAttackableTargetPredicate(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/entity/LivingEntity;)Z",
+                    ordinal = 0
             ),
             cancellable = true
     )
     // idk i just like long and descriptive names like this one
-    private static void onGetPreferredTargetAtShouldAttack(PiglinEntity piglin, CallbackInfoReturnable<Optional<? extends LivingEntity>> info) {
+    private static void onGetPreferredTargetAtTestAttackableTargetPredicate(PiglinEntity piglin, CallbackInfoReturnable<Optional<? extends LivingEntity>> info) {
         if (((LessAnnoyingPiglin) piglin).getCooldown() > 0) {
             // gives up selecting player to chase
             info.setReturnValue(Optional.empty());

@@ -1,7 +1,7 @@
 package com.leocth.lessannoyingpiglins;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
 
 @Config(name = "lessannoyingpiglins")
 public class LAPConfig implements ConfigData {
