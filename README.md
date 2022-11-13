@@ -1,3 +1,5 @@
+# CAUTION: This is abandonware. I won't work on it anymore, but it might just work. Use at your own discretion.
+
 # LessAnnoyingPiglins
 a very very simple fabric mod that makes piglin neutral for a set time (defaults to 15s) after bartering.  
 inspired by the countless innocent deaths of players caused by crossbow-wielding quick-acting piglins.
